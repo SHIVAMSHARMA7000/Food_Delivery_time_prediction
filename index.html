@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Delivery Time Prediction</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="container">
+<header>
+<h1>Food Delivery Time Prediction</h1>
+<p>Enter the delivery details to estimate the expected delivery time.</p>
+</header>
+
+<form id="predictionForm">
+
+<section class="form-section">
+<h2>Delivery Person</h2>
+<div class="form-grid">
+<div class="field"><label for="age">Delivery Person Age</label><input type="number" id="age" min="18" required></div>
+<div class="field"><label for="rating">Delivery Person Rating</label><input type="number" id="rating" min="1" max="5" step="0.1" required></div>
+<div class="field"><label for="vehicle_condition">Vehicle Condition</label><input type="number" id="vehicle_condition" min="0" required></div>
+<div class="field"><label for="multiple_deliveries">Multiple Deliveries</label><input type="number" id="multiple_deliveries" min="0" required></div>
+</div>
+</section>
+
+<section class="form-section">
+<h2>Location</h2>
+<div class="form-grid">
+<div class="field"><label for="restaurant_lat">Restaurant Latitude</label><input type="number" id="restaurant_lat" step="any" required></div>
+<div class="field"><label for="restaurant_lon">Restaurant Longitude</label><input type="number" id="restaurant_lon" step="any" required></div>
+<div class="field"><label for="delivery_lat">Delivery Latitude</label><input type="number" id="delivery_lat" step="any" required></div>
+<div class="field"><label for="delivery_lon">Delivery Longitude</label><input type="number" id="delivery_lon" step="any" required></div>
+</div>
+</section>
+
+<section class="form-section">
+<h2>Order Information</h2>
+<div class="form-grid">
+<div class="field"><label for="order_date">Order Date</label><input type="date" id="order_date" required></div>
+<div class="field"><label for="order_hour">Order Hour</label><input type="number" id="order_hour" min="0" max="23" required></div>
+<div class="field"><label for="order_minute">Order Minute</label><input type="number" id="order_minute" min="0" max="59" required></div>
+<div class="field"><label for="pickup_hour">Pickup Hour</label><input type="number" id="pickup_hour" min="0" max="23" required></div>
+<div class="field"><label for="pickup_minute">Pickup Minute</label><input type="number" id="pickup_minute" min="0" max="59" required></div>
+</div>
+</section>
+
+<section class="form-section">
+<h2>Order Characteristics</h2>
+<div class="form-grid">
+<div class="field">
+<label for="weather">Weather</label>
+<select id="weather" required>
+<option value="">Select weather</option>
+<option value="Sunny">Sunny</option>
+<option value="Stormy">Stormy</option>
+<option value="Sandstorms">Sandstorms</option>
+<option value="Cloudy">Cloudy</option>
+<option value="Windy">Windy</option>
+<option value="Fog">Fog</option>
+</select>
+</div>
+
+<div class="field">
+<label for="traffic">Road Traffic Density</label>
+<select id="traffic" required>
+<option value="">Select traffic</option>
+<option value="Low">Low</option>
+<option value="Medium">Medium</option>
+<option value="High">High</option>
+<option value="Jam">Jam</option>
+</select>
+</div>
+
+<div class="field">
+<label for="order_type">Type of Order</label>
+<select id="order_type" required>
+<option value="">Select order type</option>
+<option value="Meal">Meal</option>
+<option value="Snack">Snack</option>
+<option value="Drinks">Drinks</option>
+<option value="Buffet">Buffet</option>
+</select>
+</div>
+
+<div class="field">
+<label for="vehicle">Type of Vehicle</label>
+<select id="vehicle" required>
+<option value="">Select vehicle</option>
+<option value="motorcycle">Motorcycle</option>
+<option value="scooter">Scooter</option>
+<option value="electric_scooter">Electric Scooter</option>
+</select>
+</div>
+
+<div class="field">
+<label for="festival">Festival</label>
+<select id="festival" required>
+<option value="">Select festival status</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select>
+</div>
+
+<div class="field">
+<label for="city">City</label>
+<select id="city" required>
+<option value="">Select city</option>
+<option value="Metropolitian">Metropolitian</option>
+<option value="Urban">Urban</option>
+<option value="Semi-Urban">Semi-Urban</option>
+</select>
+</div>
+</div>
+</section>
+
+<button type="submit" id="predictButton">Predict Delivery Time</button>
+</form>
+
+<section id="result" class="result hidden">
+<p>Estimated Delivery Time</p>
+<div id="predictionValue">--</div>
+<span>minutes</span>
+</section>
+
+<div id="error" class="error hidden"></div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
